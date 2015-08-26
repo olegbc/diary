@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html ng-app="myApp">
+<head>
+    <title>Дневник</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="icon" href="/images/favicon.ico" type="image/x-icon">-->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-resource.min.js"></script>
+    <script src="/js/core.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    if (window.location.hash && window.location.hash == '#_=_') {
+        window.location.hash = '';
+    }
+</script>
+
+<div ng-view></div>
+
+<script type="text/ng-template" id="/main.html">
+    <div class="container">
+
+        <div class="page-header text-center">
+            <h1>Дневник</h1>
+            <div class="text-right">
+                <h6>Количество записей в дневнике <span class="label label-info">{{ todos.length }}</span></h1></h6>
+            </div>
+        </div>
+
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+                <div ng-repeat="todo in todos">
+                    <textarea class="form-control custom-textarea uneditable-input" rows="3" ng-click="insideNote($index)" readonly >{{ todo.text }}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Новая запис в дневнике" ng-model="formData.text">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Добавить</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="/insideNote.html">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <textarea class="form-control custom-textarea-inside" rows="10" ng-model="edit"></textarea>
+            <div class="container text-right custom-btns">
+                <button type="button" class="btn btn-danger btn-lg" ng-click="deleteTodo(todo.id)">Delete</button>
+                <button type="button" class="btn btn-primary btn-lg" ng-click="updateTodo(todo.id)">Save</button>
+            </div>
+        </div>
+    </div>
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "node-authentication",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
+    "body-parser": "latest",
+    "connect-flash": "latest",
+    "cookie-parser": "latest",
+    "ejs": "latest",
+    "express": "latest",
+    "express-session": "latest",
+    "morgan": "latest",
+    "mysql": "latest",
+    "passport": "latest",
+    "passport-facebook": "latest",
+    "passport-google": "^0.3.0",
+    "passport-google-oauth": "^0.2.0",
+    "passport-local": "latest",
+    "passport-twitter": "latest"
+  }
+}
