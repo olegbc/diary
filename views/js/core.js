@@ -8,7 +8,7 @@ myApp
             //console.log($scope.edit);
             //return;
             $http.put('/api/todos/' + id, { name: $scope.edit}).success(function() {
-                alert('Todo updated');
+                //alert('Todo updated');
             });
         };
 

@@ -36,7 +36,7 @@ module.exports = function(passport) {
     // used to deserialize the user
         passport.deserializeUser(function(id, done) {
             connection.query("SELECT DISTINCT * FROM users WHERE id = ? ",[id], function(err, rows, fields){
-                console.log(err, rows, fields);
+                //console.log(err, rows, fields);
                 done(err, rows);
             });
         });

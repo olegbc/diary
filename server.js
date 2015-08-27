@@ -54,7 +54,7 @@ var dbconfig = require('./config/database');
 var connection = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : 'root',
+    password : 'pass@word1',
     database : 'my_schema'
 });
 connection.connect();
@@ -110,8 +110,10 @@ app.delete('/api/todos/:todo_id', function(req, res) {
 });
 
 app.put('/api/todos/:todo_id', function(req, res) {
-    //console.log(req.params.todo_id);
-    console.log(req.params);
+    //  req.params.todo_id - id in DB
+    //  req.body - messege
+    console.log(req.body);
+    res.json(req.params.todo_id);
 });
 
 function handleDisconnect(connection) {
@@ -129,7 +131,7 @@ function handleDisconnect(connection) {
         connection = mysql.createConnection({
             host     : 'localhost',
             user     : 'root',
-            password : 'root',
+            password : 'pass@word1',
             database : 'my_schema'
         });
         handleDisconnect(connection);

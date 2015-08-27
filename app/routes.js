@@ -93,7 +93,7 @@ module.exports = function(app, passport, MainPath) {
         //passport.authenticate('facebook', { successRedirect : '/notes', failureRedirect: '/' }),
         passport.authenticate('facebook', { failureRedirect: '/' }),
         function(req, res) {
-            console.log(res);
+            //console.log(res);
             res.redirect('/notes');
         });
 
